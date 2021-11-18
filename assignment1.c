@@ -14,8 +14,8 @@ int main()
     int wrong = 0;
     int round = 0;
     int answer = 0;
-    int a, b;
-    int total = 0;
+    int a, b, total;
+    char d;
 
     do
     {
@@ -24,6 +24,7 @@ int main()
         printf("3 - Display Stats\n");
         printf("4 - Exit Game\n");
         scanf("%d", &num);
+        d = getchar();
 
         if (num == 1)
         {
@@ -34,20 +35,20 @@ int main()
             scanf("%d", &round);
             
             //error checks for round smaller than 5
-            if(round <= 5)
+            if((round > 0 && round <= 5) && !(round >= 'a' && round <= 'z'))
             {
                 continue;
             }// end if
             else
             {
-                printf("numbers entered not valid\n");
+                printf("Not valid! Try again\n");
             }// end else
 
         } // end if
         else if (num == 2)
         {
             // for loop to display n number of equations
-            for (i = 0; i < round; i++)
+            for (i = 0 ; i < round; i++)
             {
                 a = (rand() % 10) + 1;
                 b = (rand() % 10) + 1;
@@ -56,19 +57,19 @@ int main()
                 printf("%d x %d : ", a, b);
                 scanf("%d", &answer);
                 //check to see if right answer
-                if (answer == total)
+                if ((answer == total))
                 {
                     printf("correct\n");
                     correct++;
                 } //end if
                 //check for wrong answer
-                else
+                else 
                 {
                     printf("wrong! answer = %d\n", total);
                     wrong++;
                 } // end else
-            }     // end for
-        }         // end else if
+            }// end for
+        }// end else if
         else if (num == 3 && (correct > 0 || wrong > 0))
         {
             // only display 3 when correct or wrong has a value greater than 0
@@ -81,7 +82,7 @@ int main()
             printf("must choose option 2 before option 3");
         } //end else if
 
-    } while (num != 4);
+    } while (num != 4 && d != (num >= 'a' && num <= 'z'));
     printf("Ending game\n");
 
     return 0;
