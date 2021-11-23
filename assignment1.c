@@ -1,4 +1,4 @@
-/* maths quizz game using 1 to 4 optiobs */
+/* maths quizz game using 1 to 4 options */
 /* By Jon Kehoe */
 /* Date: 12/11/2021 */
 
@@ -8,13 +8,8 @@
 
 int main()
 {
-    int num = 0;
-    int i = 0;
-    int correct = 0;
-    int wrong = 0;
-    int round = 0;
-    int answer = 0;
-    int a, b, total;
+
+    int a, b, total, i, num,correct,wrong,round,answer;
     char d;
 
     do
@@ -50,14 +45,16 @@ int main()
             // for loop to display n number of equations
             for (i = 0 ; i < round; i++)
             {
+                // generate a random number for a random sum
                 a = (rand() % 10) + 1;
                 b = (rand() % 10) + 1;
                 total = a * b;
                 srand(time(NULL));
                 printf("%d x %d : ", a, b);
                 scanf("%d", &answer);
+                d = getchar();
                 //check to see if right answer
-                if ((answer == total))
+                if (answer == total && d != (num >= 'a' && num <= 'z'))
                 {
                     printf("correct\n");
                     correct++;
@@ -87,3 +84,4 @@ int main()
 
     return 0;
 } //end main
+
