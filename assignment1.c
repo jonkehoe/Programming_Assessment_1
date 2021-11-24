@@ -1,4 +1,5 @@
-/* maths quizz game using 1 to 4 options */
+/* maths quizz game using 1 to 4 options, Option 1 print how many rounds you want to do, Option 2 play the game, Option 3 show how many got wrong or right,
+   Option 4 terminates the game. Menu should be shown after every option, option 3 must not be played before option 2. Menu driven game.*/
 /* By Jon Kehoe */
 /* Date: 12/11/2021 */
 
